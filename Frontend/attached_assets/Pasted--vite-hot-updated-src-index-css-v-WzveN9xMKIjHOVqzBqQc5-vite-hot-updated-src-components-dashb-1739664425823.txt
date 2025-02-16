@@ -1,0 +1,34 @@
+[vite] hot updated: /src/index.css?v=WzveN9xMKIjHOVqzBqQc5
+[vite] hot updated: /src/components/dashboard-panel.tsx
+The requested module '/src/data/mockPilotData.tsx?t=1739664264957' does not provide an export named 'updatePilotStatus'
+[hmr] Failed to reload /src/components/dashboard-panel.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[vite] hot updated: /src/index.css?v=WzveN9xMKIjHOVqzBqQc5
+[vite] hot updated: /src/components/dashboard-panel.tsx
+The requested module '/src/data/mockPilotData.tsx?t=1739664265476' does not provide an export named 'updatePilotStatus'
+[hmr] Failed to reload /src/components/dashboard-panel.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[vite] hot updated: /src/index.css?v=WzveN9xMKIjHOVqzBqQc5
+[vite] hot updated: /src/components/dashboard-panel.tsx
+The requested module '/src/data/mockPilotData.tsx?t=1739664267628' does not provide an export named 'updatePilotStatus'
+[hmr] Failed to reload /src/components/dashboard-panel.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[vite] hot updated: /src/index.css?v=WzveN9xMKIjHOVqzBqQc5
+[vite] hot updated: /src/components/dashboard-panel.tsx
+The requested module '/src/data/mockPilotData.tsx?t=1739664269024' does not provide an export named 'updatePilotStatus'
+[hmr] Failed to reload /src/components/dashboard-panel.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[vite] hot updated: /src/index.css?v=WzveN9xMKIjHOVqzBqQc5
+[vite] hot updated: /src/components/dashboard-panel.tsx
+The requested module '/src/data/mockPilotData.tsx?t=1739664269470' does not provide an export named 'updatePilotStatus'
+[hmr] Failed to reload /src/components/dashboard-panel.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[vite] hot updated: /src/index.css?v=WzveN9xMKIjHOVqzBqQc5
+[vite] hot updated: /src/components/dashboard-panel.tsx
+handleEndMission called, changing to debrief
+Current screen: debrief
+handleReturnToCommand called, changing to dashboard
+Current screen: dashboard
+The requested module '/src/components/dashboard-bottom.tsx' does not provide an export named 'default'
+[hmr] Failed to reload /src/components/main-dashboard.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[vite] hot updated: /src/components/main-dashboard.tsx
+[vite] hot updated: /src/index.css?v=WzveN9xMKIjHOVqzBqQc5
+The requested module '/src/data/mockPilotData.tsx?t=1739664368139' does not provide an export named 'updatePilotStatus'
+[hmr] Failed to reload /src/components/dashboard-panel.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[vite] hot updated: /src/index.css?v=WzveN9xMKIjHOVqzBqQc5
+[vite] hot updated: /src/components/dashboard-panel.tsx
