@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 import json
-from Github.TreeHacks.health_score import calculate_scores
+from health_score import calculate_scores
 from ppg_bp_calculate import estimate_bp
 
 def fetch_vitals():
