@@ -3,78 +3,61 @@ import { z } from "zod";
 import numericMetrics from "../components/debrief-screen";
 import axios from "axios";
 
-// Function to initialize heart rate data
 async function initializeHeartRate(): Promise<void> {
   try {
     const response = await axios.get(
-      "https://cd4d-2607-f6d0-ced-5b4-88b7-94dc-28f-2968.ngrok-free.app/initializeHRSamples",
+      "https://your-ngrok-url-here/getHRSamples",
       {
         headers: {
           "ngrok-skip-browser-warning": "true",
           "Access-Control-Allow-Origin": "*",
         },
-      },
+      }
     );
-    console.log("✅ Heart rate data initialized:", response.data);
+    console.log("Heart rate data initialized:", response.data);
   } catch (error) {
-    console.error("❌ Error initializing heart rate data:", error);
+    console.error("Error initializing heart rate data:", error);
   }
 }
-
-// Function to fetch and update heart rate
-// Hardcoded heart rate sequence for Lt. Martinez
-const martinezHeartRates = [80, 84, 89, 96, 101, 103, 105, 109, 112, 100, 111, 106, 117, 108, 109, 110, 120];
-let martinezHeartRateIndex = 0;
 
 async function updatePilotHeartRate(pilotId: string): Promise<void> {
-  // Find the pilot to update
-  const pilotIndex = mockPilots.findIndex((p) => p.id === pilotId);
-  if (pilotIndex === -1) {
-    console.error("Pilot not found:", pilotId);
-    return;
-  }
-
-  if (pilotId === "P001") { // Lt. Martinez's ID
-    const newHeartRate = martinezHeartRates[martinezHeartRateIndex];
-    martinezHeartRateIndex = (martinezHeartRateIndex + 1) % martinezHeartRates.length;
-    mockPilots[pilotIndex].vitals.heartRate = newHeartRate;
-    console.log(
-      `✅ Updated heart rate for ${mockPilots[pilotIndex].name}: ${newHeartRate}`,
-    );
-  } else {
-    try {
-      const response = await axios.get(
-        "https://cd4d-2607-f6d0-ced-5b4-88b7-94dc-28f-2968.ngrok-free.app/getNextHR",
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-            "Access-Control-Allow-Origin": "*",
-          },
+  try {
+    const response = await axios.get(
+      "https://your-ngrok-url-here/getNextHR",
+      {
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+          "Access-Control-Allow-Origin": "*",
         },
-      );
-      const newHeartRate: number = response.data.bpm;
-      mockPilots[pilotIndex].vitals.heartRate = newHeartRate;
-      console.log(
-        `✅ Updated heart rate for ${mockPilots[pilotIndex].name}: ${newHeartRate}`,
-      );
-    } catch (error) {
-      console.error("❌ Error fetching heart rate:", error);
+      }
+    );
+
+    const newHeartRate: number = response.data.bpm;
+
+    const pilotIndex = mockPilots.findIndex((p) => p.id === pilotId);
+    if (pilotIndex === -1) {
+      console.error("Pilot not found:", pilotId);
+      return;
     }
+
+    mockPilots[pilotIndex].vitals.heartRate = newHeartRate;
+
+    console.log(
+      'Updated heart rate for ${mockPilots[pilotIndex].name}: ${newHeartRate}'
+    );
+  } catch (error) {
+    console.error("Error fetching heart rate:", error);
   }
 }
 
-// Function to start polling heart rate updates
 function startHeartRatePolling(pilotId: string, interval: number = 2000) {
   setInterval(() => updatePilotHeartRate(pilotId), interval);
 }
 
-// 🚀 Initialize HR data & start polling for Pilot P001
 async function initAndStartHeartRatePolling(pilotId: string) {
-  await initializeHeartRate(); // Ensure HR samples are loaded first
-  startHeartRatePolling(pilotId, 2000); // Start fetching HR every 2s
+  await initializeHeartRate();
+  startHeartRatePolling(pilotId, 2000);
 }
-
-// Start the process
 initAndStartHeartRatePolling("P001");
 
 // Function to fetch sleep score and update oxygen level
